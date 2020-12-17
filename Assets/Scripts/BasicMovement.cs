@@ -36,4 +36,14 @@ public class BasicMovement : MonoBehaviour
             }
         }
     }
+
+    void LateUpdate()
+    {
+        if (m_Direction > 0 && transform.localScale.x < 0 || m_Direction < 0 && transform.localScale.x > 0)
+        {
+            Vector3 temp = transform.localScale;
+            temp.x *= -1;
+            transform.localScale = temp;
+        }
+    }
 }
